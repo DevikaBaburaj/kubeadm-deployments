@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cluster-demo-qa
+  namespace: qa
+spec:
+  selector:
+    matchLabels:
+      app: myapp-qa
+  template:
+    metadata:
+      labels:
+        app: myapp-qa
+    spec:
+      containers:
+      - name: myapp-qa
+        image: nginx
+        ports:
+        - containerPort: 80

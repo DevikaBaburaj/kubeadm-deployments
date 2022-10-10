@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cluster-demo-dev
+  namespace: dev
+spec:
+  selector:
+    matchLabels:
+      app: myapp-dev
+  template:
+    metadata:
+      labels:
+        app: myapp-dev
+    spec:
+      containers:
+      - name: myapp-dev
+        image: devikababura/myapp:1
+        ports:
+        - containerPort: 80
